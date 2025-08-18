@@ -1,0 +1,10 @@
+@prefix ex:   <http://example.org/> .
+@prefix fog:  <http://w3id.org/fog#> .
+@prefix omg:  <http://w3id.org/omg#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# 定义一个几何对象，指向 OBJ 资源
+ex:geom_road a omg:Geometry ;
+  omg:hasName "Road OBJ geometry" ;
+  fog:asObj "http://127.0.0.1:8000/test.obj" .
+
