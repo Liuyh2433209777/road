@@ -1,0 +1,18 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix omg: <https://w3id.org/omg#> .
+@prefix fog: <https://w3id.org/fog#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ex:  <https://example.org/demo#> .
+
+# 坐标系（一定要有，Demo里会从下拉选择它）
+ex:LocalCS a omg:CoordinateSystem .
+
+# 业务元素 → 关联几何
+ex:road1 a bot:Element ;
+    omg:hasGeometry ex:geometry2 .
+
+# 几何对象 → 挂 OBJ 表示（注意：必须是文件直链）
+ex:geometry2 a omg:Geometry ;
+    omg:inCoordinateSystem ex:LocalCS ;
+    fog:asObj_v3_0-obj
+      "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.obj"^^xsd:anyURI .
