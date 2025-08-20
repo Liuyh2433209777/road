@@ -16,7 +16,7 @@ ex:g1 a omg:Geometry ;
   gom:hasCoordinateSystem ex:LocalCS ;
   # 一定要用 raw.githubusercontent 直链，并且谓词名里有“点”（v3.0-obj）
   fog:asObj_v3.0-obj
-    "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.obj"^^xsd:anyURI .
+    "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/0619.obj"^^xsd:anyURI .
 
 ######## ② 线形（alignment）参数：让 Query 4 能读到 ########
 # 1) 声明一个“对齐对象”，并指向上面的几何 ex:g1
@@ -59,4 +59,5 @@ ex:seg4 a ex:Line ;
   ex:radius "0.0"^^xsd:double ;
   ex:length "192.03"^^xsd:double ;
   ex:A "0.0"^^xsd:double ;
+
   ex:cs ex:LocalCS . 
