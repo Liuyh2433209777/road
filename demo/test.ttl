@@ -1,0 +1,10 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix omg: <https://w3id.org/omg#> .
+@prefix fog: <https://w3id.org/fog#> .
+@prefix ex:  <https://example.org/demo#> .
+
+# 一个几何对象，挂两种表示：IFC + OBJ（不需要 MTL）
+ex:road1 a bot:Element ;
+	omg:hasGeometry ex:geometry2 .
+ex:geometry2 a omg:Geometry ;
+	fog:asObj_v3_0-obj "https://github.com/Liuyh2433209777/road/blob/main/demo/road.obj"^^xsd:anyURI .
