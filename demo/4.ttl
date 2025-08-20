@@ -12,8 +12,9 @@ ex:LocalCS a gom:CartesianCoordinateSystem .
 ex:road1 a bot:Element ;
   omg:hasGeometry ex:g1 .
 
-# 几何对象 —— 关联坐标系（gom:hasCoordinateSystem），并用带“点号”的 OBJ 属性名
 ex:g1 a omg:Geometry ;
   gom:hasCoordinateSystem ex:LocalCS ;
-  fog:asObj_v3.0-obj "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.obj"^^xsd:anyURI .
-  fog:fog:asGltf_v2.0-glb "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.glb"^^xsd:anyURI .
+  fog:asObj_v3.0-obj
+    "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.obj"^^xsd:anyURI ;
+  fog:asGltf_v2.0-glb
+    "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.glb"^^xsd:anyURI .
