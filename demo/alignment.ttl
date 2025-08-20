@@ -1,0 +1,20 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix omg: <https://w3id.org/omg#> .
+@prefix gom: <https://w3id.org/gom#> .
+@prefix ex:  <https://example.org/align#> .
+
+ex:LocalCS a gom:CartesianCoordinateSystem .
+ex:roadGeom a omg:Geometry .
+
+ex:aln1 a ex:Alignment ;
+  ex:ofGeometry ex:roadGeom ;
+  ex:hasSegment ex:s1, ex:s2 .
+
+ex:s1 a ex:ClothoidSegment ;
+  ex:startX 0.79448 ; ex:startY 19.1248 ;
+  ex:startDirectionDeg 0.0 ;
+  ex:radius 350.0 ; ex:length 47.25 ; ex:clothoidA 0.0 .
+
+ex:s2 a ex:CircularArcSegment ;
+  ex:startX 26.32034 ; ex:startY 58.57065 ;
+  ex:radius 80.0 ; ex:length 77.72002 .
