@@ -16,3 +16,4 @@ ex:road1 a bot:Element ;
 ex:g1 a omg:Geometry ;
   gom:hasCoordinateSystem ex:LocalCS ;
   fog:asObj_v3.0-obj "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.obj"^^xsd:anyURI .
+  fog:asGltf_v2.0-glb "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.glb"^^xsd:anyURI .
