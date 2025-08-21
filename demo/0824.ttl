@@ -1,0 +1,62 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix omg: <https://w3id.org/omg#> .
+@prefix fog: <https://w3id.org/fog#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix gom: <https://w3id.org/gom#> .
+@prefix ex:  <https://example.org/demo#> .   # 你也可以用单独的对齐命名空间，比如 https://example.org/align#
+
+######## ① 可视化必须的：坐标系 + 几何 ########
+ex:LocalCS a gom:CartesianCoordinateSystem .
+
+ex:road1 a bot:Element ;
+  omg:hasGeometry ex:g1 .
+
+ex:g1 a omg:Geometry ;
+  gom:hasCoordinateSystem ex:LocalCS ;
+  # 一定要用 raw.githubusercontent 直链，并且谓词名里有“点”（v3.0-obj）
+  fog:asGltf_v2.0-glb
+    "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/0821.glb"^^xsd:anyURI .
+
+######## ② 线形（alignment）参数：让 Query 4 能读到 ########
+# 1) 声明一个“对齐对象”，并指向上面的几何 ex:g1
+ex:align1 a ex:HorizontalAlignment ;         # 类型随便命个名，在 Query 4 中只是取出 localName
+  ex:ofGeometry ex:g1 ;                       # ★ 关键：要能把对齐对象关联到该几何
+  ex:hasSegment ex:seg1, ex:seg2, ex:seg3, ex:seg4 .            # 包含若干段
+
+# 2) 第一段（例如缓和曲线）
+ex:seg1 a ex:Clothoid ;
+  ex:startX "0.79448"^^xsd:double ;
+  ex:startY "19.1248"^^xsd:double ;
+  ex:startDirectionDeg "1.13980789310303"^^xsd:double ;
+  ex:radius "0.0"^^xsd:double ;
+  ex:length "47.25"^^xsd:double ;
+  ex:A "65.0"^^xsd:double ;
+  ex:cs ex:LocalCS .
+
+ex:seg2 a ex:CircularArc ;
+  ex:startX "26.32034"^^xsd:double ;
+  ex:startY "58.57065"^^xsd:double ;
+  ex:startDirectionDeg "0.776995393103029"^^xsd:double ;
+  ex:radius "80.0"^^xsd:double ;
+  ex:length "77.72"^^xsd:double ;
+  ex:A "0.0"^^xsd:double ;
+  ex:cs ex:LocalCS .
+  
+ex:seg3 a ex:Clothoid ;
+  ex:startX "97.87402"^^xsd:double ;
+  ex:startY "80.02026"^^xsd:double ;
+  ex:startDirectionDeg "-0.19450487580488"^^xsd:double ;
+  ex:radius "0.0"^^xsd:double ;
+  ex:length "45.0"^^xsd:double ;
+  ex:A "60.0"^^xsd:double ;
+  ex:cs ex:LocalCS .
+  
+ex:seg4 a ex:Line ;
+  ex:startX "139.48271"^^xsd:double ;
+  ex:startY "63.30137"^^xsd:double ;
+  ex:startDirectionDeg "-0.47575487580488"^^xsd:double ;
+  ex:radius "0.0"^^xsd:double ;
+  ex:length "192.03"^^xsd:double ;
+  ex:A "0.0"^^xsd:double ;
+  ex:cs ex:LocalCS . 
