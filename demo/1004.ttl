@@ -78,14 +78,14 @@ ex:obs-2022 a ex:Observation ;
 
 ex:obs-2023 a ex:Observation ;
   ex:ofElement ex:road1 ;
-  ex:year "2023"^^xsd:gYear ;
+  ex:year "2024"^^xsd:gYear ;
   ex:pqi  "93.69"^^xsd:decimal ;
   ex:pci  "91.23"^^xsd:decimal ;
   ex:maintained false .
 
 ex:obs-2024 a ex:Observation ;
   ex:ofElement ex:road1 ;
-  ex:year "2024"^^xsd:gYear ;
+  ex:year "2023"^^xsd:gYear ;
   ex:pqi  "92.06"^^xsd:decimal ;
   ex:pci  "85.92"^^xsd:decimal ;
   ex:maintained false .
