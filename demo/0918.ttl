@@ -1,0 +1,91 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix omg: <https://w3id.org/omg#> .
+@prefix fog: <https://w3id.org/fog#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix gom: <https://w3id.org/gom#> .
+@prefix ex:  <https://example.org/demo#> .
+
+######## ① 可视化必须的：坐标系 + 几何 ########
+ex:LocalCS a gom:CartesianCoordinateSystem .
+
+ex:road1 a bot:Element ;
+  omg:hasGeometry ex:g1 .
+
+ex:g1 a omg:Geometry ;
+  gom:hasCoordinateSystem ex:LocalCS ;
+  fog:asObj_v3.0-obj
+    "https://raw.githubusercontent.com/Liuyh2433209777/road/main/demo/road.obj"^^xsd:anyURI .
+
+######## ② 线形（alignment）参数 ########
+ex:align1 a ex:HorizontalAlignment ;
+  ex:ofGeometry ex:g1 ;
+  ex:hasSegment ex:seg1, ex:seg2, ex:seg3, ex:seg4 .
+
+ex:seg1 a ex:Clothoid ;
+  ex:startX "0.79448"^^xsd:double ;
+  ex:startY "19.1248"^^xsd:double ;
+  ex:startDirectionDeg "1.13980789310303"^^xsd:double ;
+  ex:radius "0.0"^^xsd:double ;
+  ex:length "48.12"^^xsd:double ;
+  ex:A "70.16"^^xsd:double ;
+  ex:cs ex:LocalCS .
+
+ex:seg2 a ex:CircularArc ;
+  ex:startX "26.32034"^^xsd:double ;
+  ex:startY "58.57065"^^xsd:double ;
+  ex:startDirectionDeg "0.776995393103029"^^xsd:double ;
+  ex:radius "79.17"^^xsd:double ;
+  ex:length "77.19"^^xsd:double ;
+  ex:A "0.0"^^xsd:double ;
+  ex:cs ex:LocalCS .
+  
+ex:seg3 a ex:Clothoid ;
+  ex:startX "97.87402"^^xsd:double ;
+  ex:startY "80.02026"^^xsd:double ;
+  ex:startDirectionDeg "-0.19450487580488"^^xsd:double ;
+  ex:radius "0.0"^^xsd:double ;
+  ex:length "47.97"^^xsd:double ;
+  ex:A "61.11"^^xsd:double ;
+  ex:cs ex:LocalCS .
+  
+ex:seg4 a ex:Line ;
+  ex:startX "139.48271"^^xsd:double ;
+  ex:startY "63.30137"^^xsd:double ;
+  ex:startDirectionDeg "-0.47575487580488"^^xsd:double ;
+  ex:radius "0.0"^^xsd:double ;
+  ex:length "188.73"^^xsd:double ;
+  ex:A "0.0"^^xsd:double ;
+  ex:cs ex:LocalCS .
+
+######## ③ 路段性能观测数据（PQI / PCI / 养护） ########
+# 这里直接挂到 ex:road1 上
+ex:obs-2021 a ex:Observation ;
+  ex:ofElement ex:road1 ;
+  ex:year "2021"^^xsd:gYear ;
+  ex:pqi  "94.793"^^xsd:decimal ;
+  ex:pci  "93.53"^^xsd:decimal ;
+  ex:maintained false .
+
+ex:obs-2022 a ex:Observation ;
+  ex:ofElement ex:road1 ;
+  ex:year "2022"^^xsd:gYear ;
+  ex:pqi  "96.65"^^xsd:decimal ;
+  ex:pci  "100"^^xsd:decimal ;
+  ex:maintained true ;
+  ex:maintenanceYear "2022"^^xsd:gYear ;
+  ex:maintenanceAction "Milling and Resurfacing"@en .
+
+ex:obs-2023 a ex:Observation ;
+  ex:ofElement ex:road1 ;
+  ex:year "2023"^^xsd:gYear ;
+  ex:pqi  "93.69"^^xsd:decimal ;
+  ex:pci  "91.23"^^xsd:decimal ;
+  ex:maintained false .
+
+ex:obs-2024 a ex:Observation ;
+  ex:ofElement ex:road1 ;
+  ex:year "2024"^^xsd:gYear ;
+  ex:pqi  "92.06"^^xsd:decimal ;
+  ex:pci  "85.92"^^xsd:decimal ;
+  ex:maintained false .
